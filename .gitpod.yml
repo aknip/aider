@@ -1,7 +1,9 @@
 tasks:
   - name: Setup
     init: > 
-        pip install aider-chat
+        curl -LsSf https://astral.sh/uv/install.sh | sh && 
+        uv venv && source .venv/bin/activate && 
+        uv pip install aider-chat
     #docker-compose up &&
     #gp sync-done initSetup
     command: gp open README.md && ls
