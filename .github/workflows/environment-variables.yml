@@ -1,8 +1,10 @@
 name: Create environment variables
 on: push
 jobs:
-  print-secret-token:
+  set-environment-variables:
     runs-on: ubuntu-latest
     steps:
-      - name: echo a secret
-        run: echo "your secret token is verySecretToken"
+      - name: Add Mask
+        run: echo "::add-mask::${{ secrets.MY_SECRET_TOKEN }}"
+      - name: Echo a secret  
+        run: echo "your secret token is ${{ secrets.MY_SECRET_TOKEN }}"
